@@ -1,5 +1,11 @@
 ---
 # tasks file for kvm-host
+- name: Include OS-specific vars.
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ role_path }}/vars/{{ ansible_distribution }}_{{ ansible_distribution_release }}.yml"
+    - "{{ role_path }}/vars/main.yml"
+
 - name: Install apt packages for libvirt support.
   become: yes
   apt:

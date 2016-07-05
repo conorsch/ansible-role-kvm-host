@@ -1,0 +1,6 @@
+---
+kvm_host_apt_packages:
+  - libvirt0
+  - libvirt-bin
+  - qemu-kvm
+  - vagrant

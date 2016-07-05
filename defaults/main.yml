@@ -1,5 +1,8 @@
 ---
 # defaults file for kvm-host
+# List of apt packages to install. Many names vary
+# by distro, of course. The default list is mostly
+# Debian stretch/sid.
 kvm_host_apt_packages:
   - kvm
   - libvirt

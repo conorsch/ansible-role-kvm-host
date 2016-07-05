@@ -1,2 +1,9 @@
 ---
 # defaults file for kvm-host
+kvm_host_apt_packages:
+  - kvm
+  - libvirt
+  - libvirt-clients
+  - qemu
+  - vagrant
+  - vagrant-libvirt

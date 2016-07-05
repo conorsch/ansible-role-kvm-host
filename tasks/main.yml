@@ -1,2 +1,8 @@
 ---
 # tasks file for kvm-host
+- name: Install apt packages for libvirt support.
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ kvm_host_apt_packages }}"

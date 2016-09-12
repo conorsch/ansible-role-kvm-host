@@ -13,9 +13,16 @@
     state: present
   with_items: "{{ kvm_host_apt_packages }}"
 
-- name: Add usernames to libvirt group.
-  user:
+- name: Create libvirt groups.
+  group:
     name: "{{ item }}"
-    groups: libvirt
+  with_items: "{{ kvm_host_groups }}"
+
+- name: Add usernames to libvirt groups.
+  user:
+    name: "{{ item.0 }}"
+    groups: "{{ item.1 }}"
     append: yes
-  with_items: "{{ kvm_host_users }}"
+  with_nested:
+    - "{{ kvm_host_users }}"
+    - "{{ kvm_host_groups }}"

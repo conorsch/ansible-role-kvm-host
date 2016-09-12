@@ -14,3 +14,7 @@ kvm_host_apt_packages:
 # List of user accounts to be added to the 'libvirt' group,
 # which permits non-sudoized management of virtual machines.
 kvm_host_users: []
+
+# List of user groups for including kvm user accounts, e.g.
+# kvm_host_groups: ['kvm', 'libvirtd']
+kvm_host_groups: []

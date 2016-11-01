@@ -14,11 +14,13 @@
   with_items: "{{ kvm_host_apt_packages }}"
 
 - name: Create libvirt groups.
+  become: yes
   group:
     name: "{{ item }}"
   with_items: "{{ kvm_host_groups }}"
 
 - name: Add usernames to libvirt groups.
+  become: yes
   user:
     name: "{{ item.0 }}"
     groups: "{{ item.1 }}"
